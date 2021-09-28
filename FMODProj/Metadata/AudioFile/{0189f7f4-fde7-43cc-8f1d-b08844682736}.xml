@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0189f7f4-fde7-43cc-8f1d-b08844682736}">
+		<property name="assetPath">
+			<value>366367__piggimon__whisper-ambience.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e00b1eea-0f57-4682-8855-f8dad9db0b68}</destination>
+		</relationship>
+	</object>
+</objects>

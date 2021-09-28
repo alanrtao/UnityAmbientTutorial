@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b9027eea-2dcb-4f71-887b-748b6d0644a0}">
+		<property name="assetPath">
+			<value>60067__hyena__flutee_mid.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.99265306122448982</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e00b1eea-0f57-4682-8855-f8dad9db0b68}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2ed91f41-1c28-4868-a0b4-7df85193f09e}">
+		<property name="assetPath">
+			<value>382322__sterferny__stream.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>30.627120181405896</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e00b1eea-0f57-4682-8855-f8dad9db0b68}</destination>
+		</relationship>
+	</object>
+</objects>
