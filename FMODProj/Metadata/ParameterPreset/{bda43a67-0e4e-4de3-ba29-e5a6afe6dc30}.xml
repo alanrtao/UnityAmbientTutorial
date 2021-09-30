@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{bda43a67-0e4e-4de3-ba29-e5a6afe6dc30}">
+		<property name="name">
+			<value>Sharpness</value>
+		</property>
+		<relationship name="folder">
+			<destination>{324b2b47-62f0-4f60-b238-439e6269574d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{acde0a56-709a-47dc-a9c8-4499050859da}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{acde0a56-709a-47dc-a9c8-4499050859da}">
+		<property name="initialValue">
+			<value>0.5</value>
+		</property>
+	</object>
+</objects>
