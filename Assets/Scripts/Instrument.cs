@@ -12,6 +12,7 @@ public abstract class Instrument : MonoBehaviour
     public EventReference reference;
 
     // the master volume
+    [Range(0, 1)]
     public float gain;
 
     // the speed by which the volume varies
@@ -29,8 +30,13 @@ public abstract class Instrument : MonoBehaviour
     // start playing the instrument
     public abstract void Invoke();
 
+    float noise_root = 0f;
+
     // a random starting point per object for perlin noise
-    float noise_root = Random.value * 1000f;
+    private void Start()
+    {
+        noise_root = Random.value * 1000;
+    }
 
     // returns the gain level after adding perlin noise
     // the final volume exists within the interval [1-fluctuation, 1+fluctuation]

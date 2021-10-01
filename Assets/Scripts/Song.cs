@@ -14,9 +14,16 @@ public class Song : MonoBehaviour
     public LoopedInstrument background, whisper;
     public SingularInstrument flute, vibraslap;
 
+    float background_gain, whisper_gain, flute_gain, vibraslap_gain;
+
     // Start is called before the first frame update
     void Start()
     {
+        // store initial variables
+        background_gain = background.gain;
+        whisper_gain = whisper.gain;
+        flute_gain = flute.gain;
+        vibraslap_gain = vibraslap.gain;
     }
 
     private void OnEnable()
@@ -62,15 +69,15 @@ public class Song : MonoBehaviour
     void FixedUpdate()
     {
         background.UpdateState(Time.time);
-        background.gain = gain;
+        background.gain = gain * background_gain;
 
         whisper.UpdateState(Time.time);
-        whisper.gain = gain;
+        whisper.gain = gain * whisper_gain;
 
         flute.UpdateState(Time.time);
-        flute.gain = gain;
+        flute.gain = gain * flute_gain;
 
         vibraslap.UpdateState(Time.time);
-        vibraslap.gain = gain;
+        vibraslap.gain = gain * vibraslap_gain;
     }
 }
