@@ -8,7 +8,7 @@ using FMODUnity;
 
 public class SingularInstrument : Instrument
 {
-    float underlying_gain;
+    protected float underlying_gain;
 
     public override void Invoke()
     {
@@ -26,8 +26,6 @@ public class SingularInstrument : Instrument
             e.setPitch(Mathf.Pow(2, note / 12f));
 
             e.start();
-            // stop caring about the event after playing, since it is singular
-            e.release();
         } catch (Exception e)
         {
             // the note could not be played for some reason

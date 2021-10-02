@@ -12,9 +12,10 @@ public class Song : MonoBehaviour
     public float gain;
 
     public LoopedInstrument background, whisper;
-    public SingularInstrument flute, vibraslap;
+    public Flute flute, flute2;
+    public SingularInstrument vibraslap;
 
-    float background_gain, whisper_gain, flute_gain, vibraslap_gain;
+    float background_gain, whisper_gain, flute_gain, flute2_gain, vibraslap_gain;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Song : MonoBehaviour
         background_gain = background.gain;
         whisper_gain = whisper.gain;
         flute_gain = flute.gain;
+        flute2_gain = flute2.gain;
         vibraslap_gain = vibraslap.gain;
     }
 
@@ -33,8 +35,10 @@ public class Song : MonoBehaviour
         whisper.Invoke();
 
         // start randomized singular note player
-        StartCoroutine(NotePlayer(flute, 1, .3f));
-        StartCoroutine(NotePlayer(vibraslap, .5f, .5f));
+        StartCoroutine(NotePlayer(flute, 0.3f, 0.4f));
+        StartCoroutine(NotePlayer(flute, 0.3f, 0.2f));
+        StartCoroutine(NotePlayer(flute2, 1.8f, 0.75f));
+        // StartCoroutine(NotePlayer(vibraslap, .5f, 1f));
     }
 
     IEnumerator NotePlayer(SingularInstrument i, float interval, float chance)
@@ -52,6 +56,9 @@ public class Song : MonoBehaviour
             if (UnityEngine.Random.value <= chance)
             {
                 i.Invoke();
+            } else if ( i is Flute )
+            {
+                ((Flute)i).Flush();
             }
         }
     }
@@ -68,16 +75,19 @@ public class Song : MonoBehaviour
 
     void FixedUpdate()
     {
-        background.UpdateState(Time.time);
         background.gain = gain * background_gain;
+        background.UpdateState(Time.time);
 
-        whisper.UpdateState(Time.time);
         whisper.gain = gain * whisper_gain;
+        whisper.UpdateState(Time.time);
 
-        flute.UpdateState(Time.time);
         flute.gain = gain * flute_gain;
+        flute.UpdateState(Time.time);
 
-        vibraslap.UpdateState(Time.time);
+        flute2.gain = gain * flute2_gain;
+        flute2.UpdateState(Time.time);
+
         vibraslap.gain = gain * vibraslap_gain;
+        vibraslap.UpdateState(Time.time);
     }
 }
