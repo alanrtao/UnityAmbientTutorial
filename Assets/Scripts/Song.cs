@@ -13,9 +13,9 @@ public class Song : MonoBehaviour
 
     public LoopedInstrument background, whisper;
     public Flute flute, flute2;
-    public SingularInstrument vibraslap;
+    // public SingularInstrument vibraslap;
 
-    float background_gain, whisper_gain, flute_gain, flute2_gain, vibraslap_gain;
+    float background_gain, whisper_gain, flute_gain, flute2_gain; // vibraslap_gain;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class Song : MonoBehaviour
         whisper_gain = whisper.gain;
         flute_gain = flute.gain;
         flute2_gain = flute2.gain;
-        vibraslap_gain = vibraslap.gain;
+        // vibraslap_gain = vibraslap.gain;
     }
 
     private void OnEnable()
@@ -35,8 +35,8 @@ public class Song : MonoBehaviour
         whisper.Invoke();
 
         // start randomized singular note player
-        StartCoroutine(NotePlayer(flute, 0.3f, 0.4f));
-        StartCoroutine(NotePlayer(flute, 0.3f, 0.2f));
+        StartCoroutine(NotePlayer(flute, 0.3f, 0.6f));
+        StartCoroutine(NotePlayer(flute, 1.8f, 0.5f));
         StartCoroutine(NotePlayer(flute2, 1.8f, 0.75f));
         // StartCoroutine(NotePlayer(vibraslap, .5f, 1f));
     }
@@ -87,7 +87,7 @@ public class Song : MonoBehaviour
         flute2.gain = gain * flute2_gain;
         flute2.UpdateState(Time.time);
 
-        vibraslap.gain = gain * vibraslap_gain;
-        vibraslap.UpdateState(Time.time);
+        // vibraslap.gain = gain * vibraslap_gain;
+        // vibraslap.UpdateState(Time.time);
     }
 }

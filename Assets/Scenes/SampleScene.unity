@@ -178,7 +178,6 @@ MonoBehaviour:
   whisper: {fileID: 519420034}
   flute: {fileID: 519420033}
   flute2: {fileID: 519420037}
-  vibraslap: {fileID: 519420036}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -277,7 +276,7 @@ MonoBehaviour:
       Data3: 231707010
       Data4: -1728649355
     Path: event:/Whisper
-  gain: 0.51
+  gain: 0.35
   variation: 0.6
   fluctuation: 0.22
 --- !u!114 &519420035
@@ -299,9 +298,9 @@ MonoBehaviour:
       Data3: 5772936
       Data4: 876165281
     Path: event:/Background
-  gain: 1
+  gain: 3
   variation: 0.82
-  fluctuation: 0.291
+  fluctuation: 0.52
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +320,7 @@ MonoBehaviour:
       Data3: 1071185555
       Data4: -750881354
     Path: event:/Vibraslap
-  gain: 1
+  gain: 0
   variation: 0.21
   fluctuation: 0.376
 --- !u!114 &519420037

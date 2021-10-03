@@ -12,7 +12,7 @@ public abstract class Instrument : MonoBehaviour
     public EventReference reference;
 
     // the master volume
-    [Range(0, 1)]
+    [Range(0, 3)]
     public float gain;
 
     // the speed by which the volume varies

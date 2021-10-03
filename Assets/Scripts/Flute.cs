@@ -18,9 +18,9 @@ public class Flute : SingularInstrument
 
     private void Start()
     {
-        domain = new float[scale.Length * 4];
+        domain = new float[scale.Length * 5];
         int c = 0;
-        for (int i = -1; i < 3; i++)
+        for (int i = -3; i < 2; i++)
         {
             for (int j = 0; j < scale.Length; j++, c++)
             {
@@ -31,7 +31,8 @@ public class Flute : SingularInstrument
     }
 
     public void Flush () {
-        root = Mathf.Round(UnityEngine.Random.value * 12);
+        // can start an octave higher, lower, or normal
+        root = (Mathf.Round(UnityEngine.Random.value * 3) - 1) * 12;
         last_note = Mathf.Round(UnityEngine.Random.value + 1) * scale.Length;
     }
 
@@ -46,15 +47,30 @@ public class Flute : SingularInstrument
         //n note = Mathf.Clamp(note, 0, domain.Length - 1);
         last_note = note;
         note = root + domain[Mathf.RoundToInt(note)];
-
-        EventInstance ei = FMODUnity.RuntimeManager.CreateInstance(reference);
-        ei.setParameterByName("Pan", UnityEngine.Random.value * 2 - 1);
+        float pan = UnityEngine.Random.value * 2 - 1;
+        EventInstance ei = RuntimeManager.CreateInstance(reference);
+        ei.setParameterByName("Pan", pan);
         ei.setVolume(underlying_gain);
 
         // random pitch, +- 12 semitones (basically +- 1 octave
         // float note = 2 * Mathf.Round(UnityEngine.Random.value * 12 - 6);
         ei.setPitch(Mathf.Pow(2, note / 12f));
         ei.start();
+        ei.release();
+
+        if (UnityEngine.Random.value < 0.5f)
+        {
+            // play another note at the same time, one octave lower
+            ei = RuntimeManager.CreateInstance(reference);
+            ei.setParameterByName("Pan", pan);
+            ei.setVolume(underlying_gain);
+
+            // random pitch, +- 12 semitones (basically +- 1 octave
+            // float note = 2 * Mathf.Round(UnityEngine.Random.value * 12 - 6);
+            ei.setPitch(Mathf.Pow(2, (note + 12) / 12f));
+            ei.start();
+            ei.release();
+        }
     }  
 
 }
